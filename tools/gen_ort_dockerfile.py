@@ -190,8 +190,7 @@ ENV PYTHONPATH $INTEL_OPENVINO_DIR/python/python3.10:$INTEL_OPENVINO_DIR/python/
     ARG ONNXRUNTIME_VERSION
     ARG ONNXRUNTIME_REPO
     ARG ONNXRUNTIME_BUILD_CONFIG
-    RUN git config --global http.proxy "socks://127.0.0.1:10808"
-    
+
     RUN git clone -b rel-${ONNXRUNTIME_VERSION} --recursive ${ONNXRUNTIME_REPO} onnxruntime && \
         (cd onnxruntime && git submodule update --init --recursive)
 
