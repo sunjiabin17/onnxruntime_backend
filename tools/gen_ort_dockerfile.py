@@ -243,7 +243,7 @@ ARG COMMON_BUILD_ARGS="--config ${{ONNXRUNTIME_BUILD_CONFIG}} --skip_submodule_s
     )
 
     df += """
-RUN ./build.sh ${{COMMON_BUILD_ARGS}} --update --build {}
+RUN export http_proxy=http://192.168.0.200:7890 && export https_proxy=http://192.168.0.200:7890 && ./build.sh ${{COMMON_BUILD_ARGS}} --update --build {}
 """.format(
         ep_flags
     )
